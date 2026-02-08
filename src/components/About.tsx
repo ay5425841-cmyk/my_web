@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Target, Users, Award, Zap, CheckCircle } from 'lucide-react';
+import { Target, Users, Award, Zap, CircleCheck as CheckCircle } from 'lucide-react';
 
 const About = () => {
   const stats = [
