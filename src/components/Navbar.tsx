@@ -18,7 +18,7 @@ const Navbar = () => {
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
     { name: 'Services', href: '#services' },
-    { name: 'Portfolio', href: '#portfolio' },
+    { name: 'Work', href: '#work' },
     { name: 'Contact', href: '#contact' }
   ];
 
@@ -32,53 +32,48 @@ const Navbar = () => {
 
   return (
     <motion.nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white/95 backdrop-blur-lg border-b border-gray-200 shadow-sm' : 'bg-transparent'
+      className={`fixed w-full z-50 transition-all duration-500 ${
+        scrolled ? 'bg-white/90 backdrop-blur-xl shadow-lg' : 'bg-transparent'
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.6 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="flex justify-between items-center h-20">
           <motion.div 
-            className="flex items-center space-x-2"
+            className="flex items-center"
             whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3 }}
           >
-            <div className="text-gray-900 flex flex-col items-center">
-              <div className="text-xl sm:text-2xl font-bold tracking-tight leading-none">DelightX</div>
-              <div className="text-[6px] sm:text-[8px] font-normal tracking-widest uppercase text-gray-600">MEDIA</div>
+            <div className="text-gray-900 flex flex-col">
+              <div className="text-2xl font-bold tracking-tight">DelightX</div>
+              <div className="text-[8px] font-medium tracking-[0.2em] uppercase text-gray-600 -mt-1">MEDIA</div>
             </div>
           </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
+          <div className="hidden lg:flex items-center space-x-12">
+            {navItems.map((item, index) => (
               <motion.button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium"
-                whileHover={{ y: -2 }}
-                whileTap={{ y: 0 }}
+                className="text-gray-700 hover:text-black transition-colors duration-300 font-medium text-[15px] relative group"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
               >
                 {item.name}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full"></span>
               </motion.button>
             ))}
-            <motion.button
-              onClick={() => scrollToSection('#contact')}
-              className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full font-medium hover:from-blue-700 hover:to-purple-700 transition-all duration-200 shadow-lg"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Get Started
-            </motion.button>
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <motion.button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-700 hover:text-blue-600"
+              className="text-gray-700 hover:text-black p-2"
               whileTap={{ scale: 0.95 }}
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -91,31 +86,25 @@ const Navbar = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="md:hidden bg-white/98 backdrop-blur-lg border-t border-gray-200 shadow-lg"
+            className="lg:hidden bg-white/95 backdrop-blur-xl border-t border-gray-100"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <div className="px-4 py-6 space-y-4">
-              {navItems.map((item) => (
+            <div className="px-6 py-8 space-y-6">
+              {navItems.map((item, index) => (
                 <motion.button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className="block w-full text-left text-gray-700 hover:text-blue-600 py-2 font-medium"
-                  whileHover={{ x: 10 }}
+                  className="block w-full text-left text-gray-700 hover:text-black py-2 font-medium text-lg"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3, delay: index * 0.1 }}
                 >
                   {item.name}
                 </motion.button>
               ))}
-              <motion.button
-                onClick={() => scrollToSection('#contact')}
-                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-full font-medium mt-4 shadow-lg"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                Get Started
-              </motion.button>
             </div>
           </motion.div>
         )}
