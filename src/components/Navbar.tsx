@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Zap } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
@@ -33,7 +33,7 @@ const Navbar = () => {
   return (
     <motion.nav
       className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-slate-900/95 backdrop-blur-lg border-b border-slate-700/50' : 'bg-transparent'
+        scrolled ? 'bg-white/95 backdrop-blur-lg border-b border-gray-200 shadow-sm' : 'bg-transparent'
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -45,9 +45,9 @@ const Navbar = () => {
             className="flex items-center space-x-2"
             whileHover={{ scale: 1.05 }}
           >
-            <div className="text-white flex flex-col items-center">
+            <div className="text-gray-900 flex flex-col items-center">
               <div className="text-xl sm:text-2xl font-bold tracking-tight leading-none">DelightX</div>
-              <div className="text-[8px] sm:text-[10px] font-normal tracking-widest uppercase">MEDIA</div>
+              <div className="text-[6px] sm:text-[8px] font-normal tracking-widest uppercase text-gray-600">MEDIA</div>
             </div>
           </motion.div>
 
@@ -57,7 +57,7 @@ const Navbar = () => {
               <motion.button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className="text-gray-300 hover:text-white transition-colors duration-200 font-medium"
+                className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium"
                 whileHover={{ y: -2 }}
                 whileTap={{ y: 0 }}
               >
@@ -66,7 +66,7 @@ const Navbar = () => {
             ))}
             <motion.button
               onClick={() => scrollToSection('#contact')}
-              className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-2 rounded-full font-medium hover:from-blue-600 hover:to-purple-700 transition-all duration-200"
+              className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full font-medium hover:from-blue-700 hover:to-purple-700 transition-all duration-200 shadow-lg"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -78,7 +78,7 @@ const Navbar = () => {
           <div className="md:hidden">
             <motion.button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-300 hover:text-white"
+              className="text-gray-700 hover:text-blue-600"
               whileTap={{ scale: 0.95 }}
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -91,7 +91,7 @@ const Navbar = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="md:hidden bg-slate-900/98 backdrop-blur-lg border-t border-slate-700/50"
+            className="md:hidden bg-white/98 backdrop-blur-lg border-t border-gray-200 shadow-lg"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
@@ -102,7 +102,7 @@ const Navbar = () => {
                 <motion.button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className="block w-full text-left text-gray-300 hover:text-white py-2 font-medium"
+                  className="block w-full text-left text-gray-700 hover:text-blue-600 py-2 font-medium"
                   whileHover={{ x: 10 }}
                 >
                   {item.name}
@@ -110,7 +110,7 @@ const Navbar = () => {
               ))}
               <motion.button
                 onClick={() => scrollToSection('#contact')}
-                className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 rounded-full font-medium mt-4"
+                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-full font-medium mt-4 shadow-lg"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >

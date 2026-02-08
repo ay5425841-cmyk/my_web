@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { 
-  Zap, 
   Mail, 
   Phone, 
   MapPin,
@@ -45,7 +44,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-slate-900 border-t border-slate-800">
+    <footer className="bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
         <div className="py-16">
@@ -61,7 +60,7 @@ const Footer = () => {
               >
                 <div className="text-white flex flex-col items-center">
                   <div className="text-xl sm:text-2xl font-bold tracking-tight leading-none">DelightX</div>
-                  <div className="text-[8px] sm:text-[10px] font-normal tracking-widest uppercase">MEDIA</div>
+                  <div className="text-[6px] sm:text-[8px] font-normal tracking-widest uppercase text-gray-400">MEDIA</div>
                 </div>
               </motion.div>
               
@@ -189,10 +188,10 @@ const Footer = () => {
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  className="flex-1 px-4 py-2 bg-slate-800/50 border border-slate-700/50 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="flex-1 px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 />
                 <motion.button
-                  className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-4 py-2 rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all"
+                  className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -213,7 +212,7 @@ const Footer = () => {
                     <motion.a
                       key={social.name}
                       href={social.href}
-                      className="w-10 h-10 bg-slate-800/50 border border-slate-700/50 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:border-blue-500/50 hover:bg-blue-500/10 transition-all"
+                      className="w-10 h-10 bg-gray-800 border border-gray-700 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:border-blue-500 hover:bg-blue-500/10 transition-all"
                       whileHover={{ scale: 1.1, y: -2 }}
                       whileTap={{ scale: 0.95 }}
                     >
@@ -228,7 +227,7 @@ const Footer = () => {
 
         {/* Bottom Footer */}
         <motion.div 
-          className="border-t border-slate-800 py-8"
+          className="border-t border-gray-800 py-8"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
