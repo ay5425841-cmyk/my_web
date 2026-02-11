@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Palette, Code, Megaphone, Smartphone, Globe, BarChart } from 'lucide-react';
+import { ArrowRight, Palette, Code, Megaphone, Smartphone, Globe, ChartBar as BarChart } from 'lucide-react';
 
 const Services = () => {
   const services = [
